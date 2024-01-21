@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="dashboard.js"></script>
-  <script src="services"
+    <script src="dashboard.js" defer></script>
+    <script src="services.js" defer></script>
     <link rel="stylesheet" href="styleses.css">
     <title>Admin Panel</title>
 </head>
@@ -14,18 +14,26 @@
 <body>
     <div class="side-menu">
         <div class="brand-name">
-            <h1>PT Maju Jaya</h1>
+            <h1>PT. Maju Jaya</h1><br>
+          <div class="profile">
+              <div class="profile-img">
+                <img src="#">
+                <h3>Admin</h3>
+              </div>
+            </div>
+          </div>
         </div>
         <ul>
-            <li><img src="dashboard/aperture.svg" alt="">&nbsp; <span>Dashboard</span> </li>
-            <li><img src="dashboard/user-check (1).svg" alt="">&nbsp;<span>employee</span> </li>
-            <li><img src="dashboard/calendar.svg" alt="">&nbsp;<span>history</span> </li>
-            <li><img src="dashboard/database.svg" alt="">&nbsp;<span>services</span> </li>
-            <li><img src="dashboard/settings (1).svg" alt="">&nbsp;<span>Income</span> </li>
-            <li><img src="dashboard/monitor.svg" alt="">&nbsp; <span>consumption</span></li>
-            <li><img src="settings.png" alt="">&nbsp;<span>Settings</span> </li>
+            <li><img src="dashboard/user-check (1).svg" alt="">&nbsp; <span>Dashboard</span> </li>
+            <li><img src="dashboard/aperture.svg" alt="">&nbsp;<span>Consumption</span> </li>
+            <li><img src="dashboard/database.svg" alt="">&nbsp;<span>History</span> </li>
+            <li><img src="dashboard/monitor.svg" alt="">&nbsp;<span>Monitor</span> </li>
+            <li><img src="payment.png" alt="">&nbsp;<span>Income</span> </li>
+            <li><img src="dashboard/settings.svg" alt="">&nbsp; <span>Settings</span></li>
+            <li><img src="settings.png" alt="">&nbsp;<span><a href="https://ef371bd9-b5e2-4cae-95aa-a801ca7d4c0c-00-2lesxbl4ak8jh.riker.replit.dev/"> to Menu</span></a></li>
         </ul>
     </div>
+
     <div class="container">
         <div class="header">
             <div class="nav">
@@ -33,52 +41,245 @@
                     <input type="text" placeholder="Search..">
                     <button type="submit"><img src="dashboard/search.svg" alt=""></button>
                 </div>
+
                 <div class="user">
                     <a href="#" class="btn">Add New</a>
                     <img src="dashboard/bell.svg" alt="">
                     <div class="img-case">
-                        <img src="dashboard/user.svg" alt="">
+                        <img src="dashboard/icons8-male-user-24.png" alt="">
                     </div>
                 </div>
             </div>
         </div>
-         <div class="vehicle-info">
-            <h2>Vehicle Information</h2>
-           <div class="fuel-info">
-             <h2>Fuel Consumption</h2>
-              <div class="fuel-card-container" id="fuelCardContainer">
-                  
-            </div>
-              <div class="add-fuel-form">
-                <label for="oilName">Oil Name:</label>
-                <input type="text" id="oilName" placeholder="Enter oil name">
-                <label for="oilPrice">Oil Price:</label>
-                <input type="text" id="oilPrice" placeholder="Enter oil price">
-                <button id="addFuelBtn">Add Fuel</button>
-            </div>
-        </div>
-          <div class="content" id="servicesContent">
-    <h2>Services Schedule</h2>
-    <div id="servicesScheduleContainer">
-        <!-- Services schedules will be dynamically added here -->
-    </div>
-</div>
-        <div class="vehicle-booking">
-          <div class="vehicle-contain">
-            <div class="vehicle-card"
-            <h2>Vehicle Booking</h2>
-            <p>To use a vehicle, employees must submit a booking request to the vehicle management department. The usage must be approved by respective supervisors.</p>
-            
-            <!-- Display booking history -->
-            <h3>Booking History</h3>
-            <ul id="bookingHistory">
-                <!-- Booking history will be dynamically added here -->
-            </ul>
-        </div>
-                       
+        <div class="content">
+            <div class="vehicle-info">
+                <div class="vehicle-info-header">
+                    <h2>Vehicle Information</h2>
+                    <div class="vehicle-details">
+                    </div>
                 </div>
+              <h3>More </h3>
             </div>
         </div>
-    </div>
-</body>
+        <section id="fuel">
+          <div class="fuel-info">
+            <div class="fuel-info-header">
+            <h1>fuel comsumption</h1>
+            </div>
+            <div class="fuel-container">
+              <div class="fuel-card">
+                <div class="fuel-item">
+                  <h2>Data 1 :</h2>
+                   <table class="fuel-table">
+                     <thead>
+                       <tr>
+                         <th>Bus name</th>
+                         <th>Fuel Type</th>
+                         <th>Price</th>
+                       </tr>
+                     </thead>
+                     <tbody>
+                       <tr>
+                         <td>Bus 1</td>
+                         <td>petrol</td>
+                         <td>Rp. 25,000</td>
+                       </tr>
+                     </tbody>
+                   </table>
+                </div>
+              </div>
+               <div class="fuel-card">
+                <div class="fuel-item">
+                  <h2>Data 1 :</h2>
+                   <table class="fuel-table">
+                     <thead>
+                       <tr>
+                         <th>Bus name</th>
+                         <th>Fuel Type</th>
+                         <th>Price</th>
+                       </tr>
+                     </thead>
+                     <tbody>
+                       <tr>
+                         <td>Bus 1</td>
+                         <td>petrol</td>
+                         <td>Rp. 25,000</td>
+                       </tr>
+                     </tbody>
+                   </table>
+                </div>  
+              </div>
+               <div class="fuel-card">
+                <div class="fuel-item">
+                  <h2>Data 1 :</h2>
+                   <table class="fuel-table">
+                     <thead>
+                       <tr>
+                         <th>Bus name</th>
+                         <th>Fuel Type</th>
+                         <th>Price</th>
+                       </tr>
+                     </thead>
+                     <tbody>
+                       <tr>
+                         <td>Bus 1</td>
+                         <td>petrol</td>
+                         <td>Rp. 25,000</td>
+                       </tr>
+                     </tbody>
+                   </table>
+                </div>  
+               </div>
+               <div class="fuel-card">
+                <div class="fuel-item">
+                  <h2>Data 1 :</h2>
+                   <table class="fuel-table">
+                     <thead>
+                       <tr>
+                         <th>Bus name</th>
+                         <th>Fuel Type</th>
+                         <th>Price</th>
+                       </tr>
+                     </thead>
+                     <tbody>
+                       <tr>
+                         <td>Bus 1</td>
+                         <td>petrol</td>
+                         <td>Rp. 25,000</td>
+                       </tr>
+                     </tbody>
+                   </table>
+                </div>  
+               </div>
+          # table sampe sini #
+            </div>
+          </div>
+          <div class="form-container">
+            <h2>Add Report</h2>
+             <form id="reportForm">
+              <label for="busName">Bus Name:</label>
+              <input type="text" id="busName" name="busName" required>
+              <label for="oilType">Oil Type:</label>
+              <select id="oilType" name="oilType" required>
+                <option value="petrol">Petrol</option>
+                <option value="diesel">Diesel</option>
+                <option value="electric">Electric</option>
+                <option value="hybrid">Hybrid</option>
+              </select>
+              <label for="price">Price:</label>
+              <input type="number" id="price" name="price" required>
+              <button type="button" onclick="addReport()">Add Report</button>
+          </form>
+         </div>
+        </section>
+        <section id="services">
+          <div class="services-info">
+            <div class="service-header">
+              <h1>Services</h1>
+            </div>
+              <div class="services-container">
+                <div class="services-card">
+                  <div class="services-item">
+                    <h2>Data 1 :</h2>
+                    <table class="services-table">
+                      <thead>
+                        <tr>
+                          <th>Bus name</th>
+                          <th>date</th>
+                          <th>service</th>
+                          <th>condition</th>
+                          <th>price</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Bus 1</td>
+                          <td>08/02/2005</td>
+                          <td>engine, other</td>
+                          <td>good</td>
+                          <td>Rp.1,250,000</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                 <div class="services-card">
+                  <div class="services-item">
+                    <h2>Data 2 :</h2>
+                    <table class="services-table">
+                      <thead>
+                        <tr>
+                          <th>Bus name</th>
+                          <th>date</th>
+                          <th>service</th>
+                          <th>condition</th>
+                          <th>price</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Bus 1</td>
+                          <td>08/02/2005</td>
+                          <td>engine, other</td>
+                          <td>good</td>
+                          <td>Rp.1,250,000</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                 <div class="services-card">
+                  <div class="services-item">
+                    <h2>Data 3 :</h2>
+                    <table class="services-table">
+                      <thead>
+                        <tr>
+                          <th>Bus name</th>
+                          <th>date</th>
+                          <th>service</th>
+                          <th>condition</th>
+                          <th>price</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Bus 1</td>
+                          <td>08/02/2005</td>
+                          <td>engine, other</td>
+                          <td>good</td>
+                          <td>Rp.1,250,000</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                ## sampe sini tablenya ##
+                <div class="add-card-form">
+                    <h2>Add Service Card</h2>
+                    <form id="addCardForm">
+                        <label for="busName">Bus Name:</label>
+                        <input type="text" id="busName" name="busName" required>
 
+                        <label for="date">Date:</label>
+                        <input type="date" id="date" name="date" required>
+
+                        <label for="service">Service:</label>
+                        <input type="text" id="service" name="service" required>
+
+                        <label for="condition">Condition:</label>
+                        <input type="text" id="condition" name="condition" required>
+
+                        <label for="price">Price:</label>
+                        <input type="text" id="price" name="price" required>
+
+                        <button type="button" onclick="addServiceCard()">Add Card</button>
+                    </form>
+                </div>
+                //form
+              </div>
+          </div>
+        </section>
+      
+              
+</body>    
+</html>

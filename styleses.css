@@ -7,62 +7,10 @@
 
 body {
     min-height: 100vh;
+    background-color: #f1f1f1;
+    margin: 0;
 }
 
-a {
-    text-decoration: none;
-}
-
-li {
-    list-style: none;
-}
-
-h1, h2 {
-    color: #444;
-}
-
-h3 {
-    color: #999;
-}
-
-.btn {
-    background: #ff5d05;
-    color: white;
-    padding: 5px 10px;
-    text-align: center;
-}
-
-.btn:hover {
-    color: #ff5d05;
-    background: white;
-    padding: 3px 8px;
-    border: 2px solid #f05462;
-}
-
-.title {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    padding: 15px 10px;
-    border-bottom: 2px solid #999;
-}
-
-table {
-    padding: 10px;
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
-}
-
-th, td {
-    text-align: left;
-    padding: 8px;
-    border-bottom: 1px solid #ddd;
-}
-
-th {
-    background-color: #f2f2f2;
-}
 
 .side-menu {
     position: fixed;
@@ -71,6 +19,13 @@ th {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    padding-top: 20px;
+    z-index: 2; 
+    transition: width 0.3s;
+}
+
+.side-menu.closed {
+    width: 0;
 }
 
 .side-menu .brand-name {
@@ -78,29 +33,57 @@ th {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 20px;
+    background-color: #2c3e50; 
+}
+
+.side-menu .brand-name h1 {
+    color: #ecf0f1; 
+    font-size: 1.5rem; 
+    margin-left: 5px; 
+}
+
+.side-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 .side-menu li {
-    font-size: 24px;
-    padding: 10px 40px;
+    font-size: 1.2rem; 
+    padding: 12px 20px;
     color: white;
     display: flex;
     align-items: center;
+    cursor: pointer;
+    border-bottom: 1px solid #ecf0f1; 
+    transition: background 0.3s, color 0.3s;
+}
+
+.side-menu li img {
+    width: 24px;
+    margin-right: 10px; 
 }
 
 .side-menu li:hover {
-    background: white;
-    color: #ff810a;
+    background: #ecf0f1; 
+    color: #2c3e50; 
 }
 
 .container {
     position: absolute;
     right: 0;
     width: 80vw;
-    height: 100vh;
+    min-height: 100vh;
     background: #f1f1f1;
+    overflow-y: auto;
+    transition: margin-right 0.3s; 
 }
 
+.container.menu-open {
+    margin-right: 20vw; 
+}
+/* Header Styles */
 .container .header {
     position: fixed;
     top: 0;
@@ -110,7 +93,7 @@ th {
     background: white;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
@@ -174,188 +157,258 @@ th {
     height: 100%;
 }
 
-.vehicle-info {
-    position: absolute;
-    top: 10vh;
-    left: 100;
-    width: 100%;
-    height: 800px;
-    background: white;
-}
 
-.vehicle-info h2 {
-    font-size: 35px;
-    margin: 20px;
-    text-align: center;
-}
-
-.fuel-info {
-    margin-top: 20px;
-}
-
-.fuel-card-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+.dashboard {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
     gap: 20px;
 }
 
-.fuel-card {
-    background-color: #f4f4f4;
+
+.dashboard-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 20px;
+    height: auto;
+}
+
+.dashboard-contains {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.content {
+    margin-top: 10vh;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.vehicle-info-header {
+    background-color: #ec8713;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    box-sizing: border-box;
-    margin-bottom: 20px;
 }
 
-h3 {
-    color: #333;
+#fuel {
+    width: 98%;
+    margin: 15px;
+    height: 1000px;
+    background-color: #c4bfbf;
+    border-radius: 20px;
+    position: relative;
 }
 
-label {
-    display: block;
-    margin-bottom: 5px;
-    margin: 20px;
-}
-
-input {
-    width: 30%;
-    padding: 8px;
-    margin-bottom: 10px;
-    margin: 20px;
-    box-sizing: border-box;
-}
-
-button {
-    background-color: #4caf50;
+#fuel h1 {
+    font-size: 35px;
+    text-align: left;
+    margin-bottom: 15px;
+    margin-top: 15px;
     color: white;
-    margin: 20px;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #45a049;
-}
-
-#contentContainer {
-    max-width: 1200px;
-    background-color: #fff;
-    padding: 20px;
-    margin: 20px;
-    display: grid;
-    gap: 20px;
-    grid-template-columns: 1fr;
-}
-
-.service-list {
-    display: grid;
-    gap: 20px;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-}
-
-.service-item {
-    border: 1px solid #ff6714;
     padding: 15px;
-    background-color: #fff;
 }
 
-.service-item h3 {
-    margin-top: 0;
-    color: #333;
+#fuel .fuel-info {
+    height: 80vh;
 }
 
-.service-form {
+#fuel .fuel-info-header {
+    background-color: #f5c30f;
+}
+
+.fuel-container {
     display: grid;
-    gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
 }
 
-#bookingHistoryTable {
+.fuel-card {
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.fuel-item {
+    padding: 20px;
+}
+
+.fuel-table {
     width: 100%;
-    margin: 30px;
     border-collapse: collapse;
+    margin-top: 15px;
 }
 
-#bookingHistoryTable th, #bookingHistoryTable td {
+.fuel-table th,
+.fuel-table td {
     border: 1px solid #ddd;
     padding: 10px;
     text-align: left;
 }
 
-#bookingHistoryTable th {
-    background-color: #f2f2f2;
+.fuel-table th {
+    background-color: #c4c4c4;
 }
 
-#bookingHistoryTable tbody tr:hover {
-    background-color: #f4f4f4;
-    cursor: pointer;
-}
-
-.reservation-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    max-width: 800px;
-    margin: 50px auto;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+h2 {
+    color: #333;
+    margin-bottom: 10px;
 }
 
 .form-container {
-    grid-column: span 2;
+    width: 400px;
+    position: absolute;
+    top: 800px;
+    left: 60px;
+    background: #aca5a5;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: white;
+    box-sizing: border-box;
 }
 
-.reservation-form {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+.form-container h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.reportForm {
+    display: flex;
+    flex-direction: column;
     gap: 20px;
 }
 
-.form-group {
-    margin-bottom: 15px;
+.reportForm label {
+    font-weight: bold;
+    font-size: 22px;
 }
 
-@media screen and (max-width: 1050px) {
-    .side-menu li {
-        font-size: 18px;
-    }
+.reportForm input,
+.reportForm select {
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    box-sizing: border-box;
+    outline: none;
 }
 
-@media screen and (max-width: 940px) {
-    .side-menu li span {
-        display: none;
-    }
-    .side-menu {
-        align-items: center;
-    }
-    .side-menu li img {
-        width: 40px;
-        height: 40px;
-    }
-    .side-menu li:hover {
-        background: #f05462;
-        padding: 8px 38px;
-        border: 2px solid white;
-    }
+.reportForm button {
+    height: 40px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-@media screen and (max-width:536px) {
-    .brand-name h1 {
-        font-size: 16px;
-    }
-    .container .content .cards {
-        justify-content: center;
-    }
-    .side-menu li img {
-        width: 30px;
-        height: 30px;
-    }
-    .container .content .content-2 .recent-payments table th:nth-child(2),
-    .container .content .content-2 .recent-payments table td:nth-child(2) {
-        display: none;
-    }
+.reportForm button:hover {
+    background-color: #0056b3;
+}
+
+#services {
+    background-color: #757575;
+    border-radius: 20px;
+    margin-top: 15px;
+    margin: 15px;
+    width: 98%;
+    height: 1000px;
+}
+
+#services h1 {
+    font-size: 35px;
+    text-align: left;
+    padding: 20px;
+    background-color: #7b7474;
+}
+
+#services .services-info {
+    background-color: #928b8b;
+}
+
+#services .services-header {
+    background-color: #302727;
+}
+
+.service-container {
+    border: 1px solid black;
+}
+
+.services-card {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    gap: 15px;
+    margin: 15px;
+}
+
+.services-item {
+    padding: 20px;
+}
+
+.services-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.services-table th,
+.services-table td {
+    border-left: 1px solid #beb6b6;
+    padding: 10px;
+}
+
+.services-table th {
+    background-color: #b1a5a5;
+}
+
+.services-table tbody tr:hover {
+    background-color: #f0f0f0;
+    transition: background-color 0.3s;
+}
+
+.add-card-form {
+    max-width: 400px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.add-card-form label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.add-card-form input,
+.add-card-form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.add-card-form button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add-card-form button:hover {
+    background-color: #0056b3;
 }
